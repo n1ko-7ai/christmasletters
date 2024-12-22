@@ -96,7 +96,7 @@
         font-size: 1.8em; /* Меньше размер шрифта на маленьких экранах */
       }
       p {
-        font-size: 1em; /* Меньше размер текста */
+        font-size: 0.8em; /* Меньше размер текста */
       }
       .greetings {
         width: 100%; /* Ширина блока с приветствием на мобильных устройствах */
@@ -117,23 +117,27 @@
   <p class="message">안녕? 잘 지내고 있어?</p>
   <br>
   <p class="message">내가 준비한 작은 크리스마스 선물이야!</p>
-  <p class="message">주변 애들한테 들었는데, 너 감기 많이 걸리더라</p>
+  <p class="message">주변 애들한테 들었는데, 너 감기 많이 걸리더라 ㅠㅠ</p>
+  <p class="message">요즘 날씨가 너무 추워서 그렇겠지..</p>
   <p class="message">그래서 조금 걱정돼서 내가 너에게 목도리를 샀어. 내가 사 준 목도리가 도움이 됐으면 좋겠어. 😌</p>
+  <p class="message">감기 조심하고 따뜻하게 입고 다녀!</p>
+  <br>
   <p class="message">게다가 너의 스토리를 봤는데, 인형뽑기 좋아하는 것 같네 ㅋㅎㅋㅎ</p>
-  <p class="message">그래서 너에게 특별히 인형을 뽑아봤어! ㅎㅎ</p>
-  <p class="message">이 선물을 준비하면서 너와 함께한 시간이 떠오르더라 ^^</p>
+  <p class="message">그래서 너에게 특별히 인형을 샀어! ㅎㅎ</p>
+  <p class="message">이 선물을 준비하면서 추억이 많이 떠오르더라 ^^</p>
   <br>
   <p class="message">이제 고1 끝나가는데 서진이 고생 많았겠다.</p>
   <p class="message">기말고사는 잘 봤니? 못봤어도 괜찮아 ㅎ 나도 못봄 ㅋㅋ</p>
   <br>
-  <p class="message">내가 아는 여자 애들중에 너가 진짜 대단하다..</p>
-  <p class="message">이쁜 외모와 좋은 성격을 갖는거고 춤도 잘 쳐. 멋있어!</p>
+  <p class="message">항상 이쁘고 따뜻한 에너지를 주는 서진이, 정말 대단해! 너 춤 진짜 멋지게 추더라! 항상 열심히 하는 모습 너무 멋있어!!</p>
   <p class="message">작년 같은 반이었을 때 너의 다정한 모습이 정말 좋았어</p>
   <p class="message">길에서 마주칠 때마다 항상 인사해 줘서 너무 고마웠어</p>
   <br>
-  <p class="message">너랑 계속 친해지고 싶어</p>
+  <p class="message">사실 너랑 계속 친해지고 싶어</p>
   <p class="message">혹시 시간이 된다면 같이 어디 가서 놀고 싶은데, 너는 어때?</p>
-  <p class="message">맛있는거 많이 사줄테니까 돈 걱정마 ㅋㅋ</p>
+  <p class="message">너만 괜찮으면 어디든 같이 가줄게 ㅋㅋ</p>
+  <br>
+  <p class="message">그리고 이 편지 살짝 개인적인 편지라 다른 애들한테 안 보여줬으면 좋겠다 ㅋ</p>
   <br>
   <p class="message">어쨌든, 즐거운 크리스마스 보내! 항상 행복하고 건강하길 바래~</p>
   <br><br>
@@ -162,29 +166,41 @@
 
 
 
-    const currentDate = new Date();
-    const christmasDate = new Date('2024-12-25'); // Дата Рождества
+    document.addEventListener('DOMContentLoaded', function () {
+  const currentDate = new Date();
+  const christmasDate = new Date('2024-12-22'); // Дата Рождества
 
-    if (currentDate >= christmasDate) {
   const secret = document.querySelector('#secret');
-  if (secret) secret.style.display = 'none';
-  
+  const greeting = document.querySelector('#greeting');
   const paragraphs = document.querySelectorAll('.message');
-  paragraphs.forEach(paragraph => {
-    paragraph.style.display = 'block';
-  });
-} else {
-  const secret = document.querySelector('#secret');
-  const greeting = document.querySelector('#greeting'); // Здесь нужен `id`, а не `class`.
-  
-  if (greeting) greeting.textContent = '12월 25일까지 기다려주세요!';
-  
-  const paragraphs = document.querySelectorAll('.message');
-  paragraphs.forEach(paragraph => {
-    paragraph.style.display = 'none';
-    paragraph.textContent = '아직 비밀이야, 보지마!';
-  });
-}
+
+  if (currentDate >= christmasDate) {
+    if (secret) secret.style.display = 'none'; // Скрыть секрет
+    paragraphs.forEach(paragraph => {
+      paragraph.style.display = 'block'; // Показать все сообщения
+    });
+
+    // Анимация снежинок
+    let snowflakesCreated = 0;
+    const interval = setInterval(() => {
+      if (snowflakesCreated < 50) {
+        createSnowflake();
+        snowflakesCreated++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 30);
+  } else {
+    if (greeting) {
+      greeting.textContent = '12월 25일까지 기다려주세요!';
+    }
+
+    paragraphs.forEach(paragraph => {
+      paragraph.style.display = 'none'; // Скрыть все сообщения
+      paragraph.textContent = '아직 비밀이야, 보지마!'; // Текст до Рождества
+    });
+  }
+});
 
 
     if(currentDate >= christmasDate) {
