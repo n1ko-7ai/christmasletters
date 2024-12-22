@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&family=Gowun+Batang&family=Nanum+Pen+Script&display=swap" rel="stylesheet">
+  <title>크리스마스 잘 보내, 이서진!</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(to bottom, #f44336, #4caf50); /* Красный и зелёный */
+      color: white;
+      overflow: auto; /* Включаем прокрутку */
+      min-height: 100vh; /* Гарантируем минимальную высоту на уровне экрана */
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start; /* Не центрируем элементы вертикально */
+      align-items: center;
+      padding: 10px;
+    }
+
+    .greetings {
+    background: linear-gradient(to right, #ffcc00, #ffe26c);
+    border-radius: 35px;
+    width: 90%;
+    max-width: 900px;
+    height: 128px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3); /* Легкая тень вокруг блока */
+    }
+
+
+    h1 {
+      font-family: "Do Hyeon", serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 3em;
+      margin-bottom: 0px;
+      margin-top: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    }
+
+    a {
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      font-family: "Nanum Pen Script", serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 28px;
+    }
+
+    p {
+      font-family: "Gowun Batang", serif;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 1.2em;
+      margin-top: 0px;
+      line-height: 1.5;
+      word-wrap: break-word; /* Чтобы длинные слова не выходили за пределы */
+    }
+
+    /* Анимация снежинок */
+    .snowflake {
+    position: absolute;
+    font-size: 1.5em;
+    color: white;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    animation-duration: 6s; /* Увеличиваем продолжительность падения */
+    }
+
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100%);
+        opacity: 1;
+      }
+      80% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(100vh);
+        opacity: 0;
+      }
+    }
+
+    /* Адаптивность для маленьких экранов */
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8em; /* Меньше размер шрифта на маленьких экранах */
+      }
+      p {
+        font-size: 1em; /* Меньше размер текста */
+      }
+      .greetings {
+        width: 100%; /* Ширина блока с приветствием на мобильных устройствах */
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="greetings"><h1>즐거운 크리스마스 보내, 이서진! 🎄🎁</h1>
+  <a>to 이서진 from 니콜라이</a>
+  </div>
+  <br>
+  <p>안녕? 잘 지내고 있었어?</p>
+  <br>
+  <p>내가 준비한 작은 크리스마스 선물이야!</p>
+  <p>주변 애들한테 들었는데, 너 감기 많이 걸리더라</p>
+  <p>그래서 조금 걱정돼서 내가 너에게 목더리를 샀어. 내가 사 준 목도리가 도움이 됐으면 좋겠어. 😌</p>
+  <p>게다가 너의 스토리를 봤는데, 인형뽑기 좋아하는 것 같네 ㅋㅎㅋㅎ</p>
+  <p>그래서 너에게 특별히 인형을 뽑아봤어! ㅎㅎ</p>
+  <p>이 선물을 준비하면서 너와 함께한 시간이 떠오르더라 ^^</p>
+  <br>
+  <p>이제 고1 끝나가는데 서진이 고생 많았겠다.</p>
+  <p>기말고사는 잘 봤니? 못봤어도 괜찮아 ㅎ 나도 못봄 ㅋㅋ</p>
+  <br>
+  <p>내가 아는 여자 애들중에 너가 진짜 대단하다..</p>
+  <p>이쁜 외모와 좋은 성격을 갖는거고 춤도 잘 쳐. 멋있어!</p>
+  <p>작년 같은 반이었을 때 너의 다정한 모습이 정말 좋았어</p>
+  <p>길에서 마주칠 때마다 항상 인사해 줘서 너무 고마웠어</p>
+  <br>
+  <p>너랑 계속 친해지고 싶어</p>
+  <p>혹시 시간이 된다면 같이 어디 가서 놀고 싶은데, 너는 어때?</p>
+  <p>어쨌든, 즐거운 크리스마스 보내! 항상 행복하고 건강하길 바래~</p>
+  <br><br>
+
+  <a>메리 크리스마스 이서진!~</a>
+
+  <script>
+    function createSnowflake() {
+      const snowflake = document.createElement("div");
+      snowflake.textContent = "❄";
+      snowflake.classList.add("snowflake");
+
+      const size = Math.random() * 20 + 10; // Размер снежинки
+      snowflake.style.left = Math.random() * 100 + "vw"; // Случайное положение
+      snowflake.style.fontSize = size + "px"; // Случайный размер
+      snowflake.style.animationDuration = Math.random() * 3 + 2 + "s"; // Случайная скорость
+
+      document.body.appendChild(snowflake);
+
+      // Возвращаем снежинку наверх после завершения анимации
+      snowflake.addEventListener("animationend", () => {
+        snowflake.style.top = "-10%";
+        snowflake.style.left = Math.random() * 100 + "vw"; // Снова случайная позиция
+        snowflake.style.animationDuration = Math.random() * 3 + 2 + "s"; // Новая скорость
+      });
+    }
+
+    let snowflakesCreated = 0;
+    const interval = setInterval(() => {
+      if (snowflakesCreated < 50) {
+        createSnowflake();
+        snowflakesCreated++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 30);
+  </script>
+</body>
+</html>
